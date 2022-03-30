@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Products from './components/products/products';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let products = [
+  {
+    id: 1,
+    name: "Produto 1",
+    price: 100,
+    photo: 'https://picsum.photos/200/200?a=1'
+  },
+  {
+    id: 2,
+    name: "Produto 2",
+    price: 100,
+    photo: 'https://picsum.photos/200/200?a=2'
+  },
+  {
+    id: 3,
+    name: "Produto 3",
+    price: 100,
+    photo: 'https://picsum.photos/200/200?a=3'
+  },
+  {
+    id: 4,
+    name: "Produto 4",
+    price: 100,
+    photo: 'https://picsum.photos/200/200?a=4'
+  },
+]
+
+class App extends React.Component {
+
+  state = {
+    minValue: "",
+    maxValue: "",
+    nameValue: ""
+  }
+
+  render() {
+    return (
+      <div>
+        <Products
+          products={products}
+          minValue={this.state.minValue}
+          maxValue={this.state.maxValue}
+          nameValue={this.state.nameValue}/>
+      </div>
+    );
+  }
 }
 
 export default App;
