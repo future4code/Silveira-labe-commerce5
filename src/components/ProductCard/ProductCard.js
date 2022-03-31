@@ -13,6 +13,8 @@ const ProductsFooter = styled.div`
 `
 const ProductPhoto = styled.img`
     width: 100%;
+    height: 60%;
+}
 `;
 const ProductButton = styled.button`
     align-self: center;
@@ -37,7 +39,7 @@ class ProductCard extends React.Component {
                 <ProductPhoto src={product.photo} alt={"Imagem Photo"} />
                 <ProductsFooter>
                     <p>{product.name}</p>
-                    <p>{product.price}</p>
+                    <p>R${product.price}</p>
                     <ProductButton onClick={this.onClickAddCart}>Adicionar ao carrinho</ProductButton>
                 </ProductsFooter>
             </ContainerProdutos>

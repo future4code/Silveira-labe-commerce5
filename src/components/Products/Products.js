@@ -6,7 +6,6 @@ const ProductCardDiv = styled.div`
   display: flex;
   flex-direction: column;
 `
-
 const Header = styled.header`
   display: flex;
   align-items: center;
