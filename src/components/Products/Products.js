@@ -4,7 +4,7 @@ import data from '../data/products';
 import styled from 'styled-components';
 
 const ProductCardDiv = styled.div`
-  display: flex,
+  display: flex;
   flex-direction: row;
 `
 const Header = styled.header`
@@ -14,23 +14,34 @@ const Header = styled.header`
   padding: 0px 16px;
 `
 const CardsProducts = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px;
 `
 
 class Products extends React.Component {
-  productsObj = {
-    products: data
-  }
-    getFilteredList = () => {
-        // this.props.products
-        //     .filter((obj) => obj.price < maxValue)
-        //     .filter((obj) => obj.price > minValue)
-        //     .filter((obj) => obj.name.includes(this.props.nameValue))
-            // .sort((a, b) => )
+    productsObj = {
+        products: data
     }
+
+    state = {
+        sort: ""
+    }
+
+    getFilteredList = () => {
+ 
+        return this.props.products
+            .filter ( (obj) => this.props.maxValue === "" || obj.price <= this.props.maxValue )
+            .filter ( (obj) => this.props.minValue === "" || obj.price >= this.props.minValue )
+            .filter ( (obj) => obj.name.toUpperCase().includes(this.props.namevalue.toLowerCase()))
+            .sort ((a,b) => this.state.sort === 'CRESCENTE' ? a.price - b.price : b.price - a.price)
+
+
+    }
+
+    onChangeSelect = (event) => this.setState({sort:event.target.value});
+    
 
     render(){
         // const filteredList = this.getFilteredList();

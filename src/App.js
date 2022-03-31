@@ -1,56 +1,57 @@
-import React from 'react';
-import Filter from './components/Filter/Filter';
-import Products from './components/Products/Products';
-import styled from 'styled-components';
+    import React from 'react';
+    import Filter from './components/Filter/Filter';
+    import Products from './components/Products/Products';
+    import styled from 'styled-components';
 
-const ContainerMain = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  padding: 16px;
-  gap: 8px;
-`
+    const ContainerMain = styled.div`
+    background: blue;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 16px;
+    gap: 8px;
+    `      
 
-const Cart = styled.div`
-  border: 1px solid black;
-  padding: 8px;
-`
+    const Cart = styled.div`
+    border: 1px solid black;
+    padding: 8px;
+    `
 
-class App extends React.Component {
+    class App extends React.Component {
 
-  state = {
-    minValue: 1,
-    maxValue: 2000,
-    nameValue: ""
-  }
+    state = {
+        minValue: "",
+        maxValue: "",
+        nameValue: ""
+    }
 
-  onChangeMinValue = (event) => this.setState({minValue: event.target.value});
-  onChangeMaxValue = (event) => this.setState({maxValue: event.target.value});
-  onChangeNameValue = (event) => this.setState({nameValue: event.target.value});
+    onChangeMinValue = (event) => this.setState({minValue: event.target.value});
+    onChangeMaxValue = (event) => this.setState({maxValue: event.target.value});
+    onChangeNameValue = (event) => this.setState({nameValue: event.target.value});
 
-  render() {
-    return (
-      <ContainerMain>
+    render() {
+        return (
+        <ContainerMain>    
 
-        <Filter
-          minValue={this.state.minValue}
-          maxValue={this.state.maxValue}
-          nameValue={this.state.nameValue}
-          onChangeMinValue={this.onChangeMinValue}
-          onChangeMaxValue={this.onChangeMaxValue}
-          onChangeNameValue={this.onChangeNameValue}
-          />
+            <Filter
+            minValue={this.state.minValue}
+            maxValue={this.state.maxValue}
+            nameValue={this.state.nameValue}
+            onChangeMinValue={this.onChangeMinValue}
+            onChangeMaxValue={this.onChangeMaxValue}
+            onChangeNameValue={this.onChangeNameValue}
+            />
 
-        <Products
+            <Products
 
-          minValue={this.state.minValue}
-          maxValue={this.state.maxValue}
-          nameValue={this.state.nameValue} />
+            minValue={this.state.minValue}
+            maxValue={this.state.maxValue}
+            nameValue={this.state.nameValue} />
 
-          <Cart></Cart>
+            <Cart></Cart>
 
-      </ContainerMain>
-    );
-  }
-}
+        </ContainerMain>
+        );
+    }
+    }
 
-export default App;
+    export default App;
