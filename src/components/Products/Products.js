@@ -1,3 +1,12 @@
+
+import React from "react";
+import ProductCard from "../ProductCard/ProductCard";
+import styled from 'styled-components';
+
+const ProductCardDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+
 import React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styled from 'styled-components';
@@ -5,6 +14,7 @@ import styled from 'styled-components';
 const ProductCardDiv = styled.div`
   display: flex,
   flex-direction: row;
+
 `
 const Header = styled.header`
   display: flex;
@@ -50,13 +60,27 @@ class Products extends React.Component {
 
       }
 
+    state = {
+        sort: ""
+    }
+
     getFilteredList = () => {
+
+        return this.props.products
+            .filter((obj) => obj.price <= this.props.maxValue)
+            .filter((obj) => obj.price >= this.props.minValue)
+            .filter((obj) => obj.name.includes(this.props.nameValue))
+            .sort((a, b) => this.state.sort === 'CRESCENTE' ? a.price - b.price : b.price - a.price)
+
         // this.props.products
         //     .filter((obj) => obj.price < maxValue)
         //     .filter((obj) => obj.price > minValue)
         //     .filter((obj) => obj.name.includes(this.props.nameValue))
             // .sort((a, b) => )
+
     }
+
+    onChangeSelect = (event) => this.setState({sort: event.target.value});
 
     render(){
         // const filteredList = this.getFilteredList();
@@ -75,6 +99,21 @@ class Products extends React.Component {
         return(
             <ProductCardDiv>
                 <Header>
+
+                    <p>Quantidade de produtos: {filteredList.length}</p>
+                    <label>
+                        Ordenação:
+                        <select value={this.state.sort} onChange={this.onChangeSelect}>
+                            <option value="CRESCENTE">Crescente</option>
+                            <option value="DECRESCENTE">Decrescente</option>
+                        </select>
+                    </label>
+                </Header>
+                <CardsProducts>
+                    {filteredList.map((obj) => {
+                        return <ProductCard products={obj}/>
+                    })}
+
                     <p>Quantidade produtos: {this.state.products.length}</p>
                     <p>
                         Ordenação
@@ -87,6 +126,7 @@ class Products extends React.Component {
 
                 <CardsProducts>
                     {componentsProduct}
+
                 </CardsProducts>
             </ProductCardDiv>
         )
