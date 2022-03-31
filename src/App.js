@@ -1,32 +1,21 @@
 import React from 'react';
-import Products from './components/products/products';
+import Products from './components/Products/Products';
+import styled from 'styled-components';
 
-let products = [
-  {
-    id: 1,
-    name: "Produto 1",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=1'
-  },
-  {
-    id: 2,
-    name: "Produto 2",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=2'
-  },
-  {
-    id: 3,
-    name: "Produto 3",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=3'
-  },
-  {
-    id: 4,
-    name: "Produto 4",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=4'
-  },
-]
+const ContainerMain = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 16px;
+  gap: 8px;
+`
+const Filter = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`
+const Cart = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`
 
 class App extends React.Component {
 
@@ -38,13 +27,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <ContainerMain>
+        <Filter>
+          Filtro
+        </Filter>
+
         <Products
-          products={products}
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
-          nameValue={this.state.nameValue}/>
-      </div>
+          nameValue={this.state.nameValue} />
+
+        <Cart>
+          Carrinho
+        </Cart>
+        
+      </ContainerMain>
     );
   }
 }
