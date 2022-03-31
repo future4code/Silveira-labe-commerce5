@@ -1,7 +1,7 @@
 import React from 'react';
 import productsList from './data/products.json'
-import Filter from './components/Filter/Filter';
-import Products from './components/Products/Products';
+import Filter from './components/Filter/Filter.js';
+import Products from './components/Products/Products.js';
 import styled from 'styled-components';
 
 let productsObj = {
@@ -35,6 +35,7 @@ class App extends React.Component {
   render() {
     return (
       <ContainerMain>
+
         <Filter
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
@@ -43,16 +44,19 @@ class App extends React.Component {
           onChangeMaxValue={this.onChangeMaxValue}
           onChangeNameValue={this.onChangeNameValue}
           />
+        
         <Products 
           products={productsObj.products}
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
           nameValue={this.state.nameValue} />
 
-          <Cart></Cart>
+        <Cart>
+          Carrinho
+        </Cart>
+
       </ContainerMain>
     );
   }
 }
-
 export default App;
