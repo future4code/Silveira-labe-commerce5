@@ -27,9 +27,9 @@ class Products extends React.Component {
 
     getFilteredList = () => {
         return this.props.products
-            .filter((obj) => obj.price <= this.props.maxValue)
-            .filter((obj) => obj.price >= this.props.minValue)
-            .filter((obj) => obj.name.includes(this.props.nameValue))
+            .filter((obj) => this.props.maxValue === "" || obj.price <= this.props.maxValue)
+            .filter((obj) => this.props.minValue === "" || obj.price >= this.props.minValue)
+            .filter((obj) => obj.name.toLowerCase().includes(this.props.nameValue.toLowerCase()))
             .sort((a, b) => this.state.sort === 'CRESCENTE' ? a.price - b.price : b.price - a.price)
     }
 

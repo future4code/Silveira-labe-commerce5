@@ -23,8 +23,8 @@ const Cart = styled.div`
 class App extends React.Component {
 
   state = {
-    minValue: 1,
-    maxValue: 2000,
+    minValue: "",
+    maxValue: "",
     nameValue: ""
   }
 
