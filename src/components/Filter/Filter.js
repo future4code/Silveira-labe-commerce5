@@ -1,35 +1,48 @@
 import React from "react";
+import styled from 'styled-components';
+
+const FilterDiv = styled.div `
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 8px;
+`
+
+const Label = styled.label `
+    display: flex;
+    flex-direction: column;
+`
 
 class Filter extends React.Component {
     render(){
         return(
-            <div>
+            <FilterDiv>
                 <h3>Filtros</h3>
-                <label>
+                <Label>
                     Valor mínimo:
                     <input 
                     type="number"
                     value={this.props.minValue} 
                     onChange={this.props.onChangeMinValue}
                     />
-                </label>
-                <label>
+                </Label>
+                <Label>
                     Valor máximo:
                     <input 
                     type="number"
                     value={this.props.maxValue} 
                     onChange={this.props.onChangeMaxValue}
                     />
-                </label>
-                <label>
+                </Label>
+                <Label>
                     Busca por nome:
                     <input 
                     type="text"
                     value={this.props.nameValue} 
                     onChange={this.props.onChangeNameValue}
                     />
-                </label>
-            </div>
+                </Label>
+            </FilterDiv>
         )
     }
 }

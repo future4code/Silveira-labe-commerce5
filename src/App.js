@@ -1,39 +1,30 @@
 import React from 'react';
+import productsList from './data/products.json'
 import Filter from './components/Filter/Filter';
 import Products from './components/Products/Products';
+import styled from 'styled-components';
 
-let products = [
-  {
-    id: 1,
-    name: "Produto 1",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=1'
-  },
-  {
-    id: 2,
-    name: "Produto 2",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=2'
-  },
-  {
-    id: 3,
-    name: "Produto 3",
-    price: 100,
-    photo: 'https://picsum.photos/200/200?a=3'
-  },
-  {
-    id: 4,
-    name: "Produto 4",
-    price: 150,
-    photo: 'https://picsum.photos/200/200?a=4'
-  },
-]
+let productsObj = {
+  products: productsList
+}
+
+const ContainerMain = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 16px;
+  gap: 8px;
+`
+
+const Cart = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`
 
 class App extends React.Component {
 
   state = {
-    minValue: "",
-    maxValue: "",
+    minValue: 1,
+    maxValue: 2000,
     nameValue: ""
   }
 
@@ -43,7 +34,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <ContainerMain>
         <Filter
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
@@ -53,11 +44,13 @@ class App extends React.Component {
           onChangeNameValue={this.onChangeNameValue}
           />
         <Products 
-          products={products}
+          products={productsObj.products}
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
           nameValue={this.state.nameValue} />
-      </div>
+
+          <Cart></Cart>
+      </ContainerMain>
     );
   }
 }
