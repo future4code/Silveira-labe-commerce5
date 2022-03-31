@@ -30,12 +30,14 @@ class ProductCard extends React.Component {
     };
 
     render() {
+        const product = this.props.products;
+
         return (
             <ContainerProdutos>
-                <ProductPhoto src={this.props.photo} alt={"Imagem Photo"} />
+                <ProductPhoto src={product.photo} alt={"Imagem Photo"} />
                 <ProductsFooter>
-                    <p>{this.props.name}</p>
-                    <p>{this.props.price}</p>
+                    <p>{product.name}</p>
+                    <p>{product.price}</p>
                     <ProductButton onClick={this.onClickAddCart}>Adicionar ao carrinho</ProductButton>
                 </ProductsFooter>
             </ContainerProdutos>

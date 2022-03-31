@@ -1,18 +1,23 @@
-import React from 'react';
-import ProductCard from '../ProductCard/ProductCard';
-import data from '../data/products';
+import React from "react";
+import ProductCard from "../ProductCard/ProductCard";
 import styled from 'styled-components';
 
 const ProductCardDiv = styled.div`
   display: flex;
+
   flex-direction: row;
+
+  flex-direction: column;
+
 `
+
 const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 16px;
 `
+
 const CardsProducts = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -21,6 +26,7 @@ const CardsProducts = styled.div`
 `
 
 class Products extends React.Component {
+
     productsObj = {
         products: data
     }
@@ -46,36 +52,44 @@ class Products extends React.Component {
     render(){
         // const filteredList = this.getFilteredList();
 
-        const componentsProduct = this.productsObj.products.map((prod) => {
-            return (
-              <ProductCard
-                key={prod.id}
-                name={prod.name}
-                price={prod.price}
-                photo={prod.photo}
-              />
-            );
-          });
 
-        return(
-            <ProductCardDiv>
-                <Header>
-                    <p>Quantidade produtos: {this.productsObj.products.length}</p>
-                    <p>
-                        Ordenação
-                        <select>
-                            <option>Crescente</option>
-                            <option>Decrescente</option>
-                        </select>
-                    </p>
-                </Header>
+  state = {
+    sort: "CRESCENTE"
+  }
 
-                <CardsProducts>
-                    {componentsProduct}
-                </CardsProducts>
-            </ProductCardDiv>
-        )
-    }
+
+  getFilteredList = () => {
+    return this.props.products
+    .filter((obj) => this.props.maxValue === "" || obj.price <= this.props.maxValue)
+    .filter((obj) => this.props.minValue === "" ||  obj.price >= this.props.minValue)
+    .filter((obj) => obj.name.toLowerCase().includes(this.props.nameValue.toLowerCase()))
+    .sort((a, b) => this.state.sort === 'CRESCENTE' ? a.price - b.price : b.price - a.price)
+  }
+
+  onChangeSelect = (event) => this.setState({sort: event.target.value});
+
+  render(){
+    const filteredList = this.getFilteredList();
+    return(
+      <ProductCardDiv>
+          <Header>
+            <p>Quantidade de produtos: {filteredList.length}</p>
+            <label>
+                Ordenação:
+                <select value={this.state.sort} onChange={this.onChangeSelect}>
+                    <option value="CRESCENTE">Crescente</option>
+                    <option value="DECRESCENTE">Decrescente</option>
+                </select>
+            </label>
+            </Header>
+            <CardsProducts>
+              {filteredList.map((obj) => {
+                return <ProductCard key={obj.id} products={obj}/>
+              })}
+            </CardsProducts>
+      </ProductCardDiv>
+    )
+  }
 }
 
 export default Products;
