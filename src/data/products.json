@@ -1,38 +1,38 @@
 [
     {
         "id": 1,
-        "name": "Produto 1",
-        "price": 100,
-        "photo": "https://picsum.photos/200/200?a=1"
+        "name": "Explorer 1",
+        "price": 100.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09001326865481.jpg?ims=704x" 
     },
     {
         "id": 2,
-        "name": "Produto 2",
-        "price": 125,
-        "photo": "https://picsum.photos/200/200?a=2"
+        "name": "Sputnik",
+        "price": 125.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09001157614480.jpg?ims=704x"
     },
     {
         "id": 3,
-        "name": "Produto 3",
-        "price": 150,
-        "photo": "https://picsum.photos/200/200?a=3"
+        "name": "Vostok 1",
+        "price": 150.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002021259484.jpg?ims=704x"
     },
     {
         "id": 4,
-        "name": "Produto 4",
-        "price": 400,
-        "photo": "https://picsum.photos/200/200?a=4"
+        "name": "Luna 10",
+        "price": 400.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002211130485.jpg?ims=704x"
     },
     {
         "id": 5,
-        "name": "Produto 5",
-        "price": 950,
-        "photo": "https://picsum.photos/200/200?a=5"
+        "name": "Mariner 9",
+        "price": 950.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002324987486.jpg?ims=704x"
     },
     {
         "id": 6,
-        "name": "Produto 6",
-        "price": 1100,
-        "photo": "https://picsum.photos/200/200?a=6"
+        "name": "Galileo",
+        "price": 1100.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002954891489.jpg?ims=704x"
     }
 ]
