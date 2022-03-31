@@ -1,8 +1,14 @@
 import React from 'react';
+
 import productsList from './data/products.json'
 import Filter from './components/Filter/Filter';
 import Products from './components/Products/Products';
 import styled from 'styled-components';
+
+
+import Products from './components/Products/Products';
+import styled from 'styled-components';
+
 
 let productsObj = {
   products: productsList
@@ -13,6 +19,11 @@ const ContainerMain = styled.div`
   grid-template-columns: 1fr 3fr 1fr;
   padding: 16px;
   gap: 8px;
+`
+
+const Filter = styled.div`
+  border: 1px solid black;
+  padding: 8px;
 `
 
 const Cart = styled.div`
@@ -35,6 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <ContainerMain>
+
         <Filter
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
@@ -45,11 +57,24 @@ class App extends React.Component {
           />
         <Products 
           products={productsObj.products}
+
+        <Filter>
+          Filtro
+        </Filter>
+
+        <Products
+
           minValue={this.state.minValue}
           maxValue={this.state.maxValue}
           nameValue={this.state.nameValue} />
 
           <Cart></Cart>
+
+        <Cart>
+          Carrinho
+        </Cart>
+        
+
       </ContainerMain>
     );
   }
