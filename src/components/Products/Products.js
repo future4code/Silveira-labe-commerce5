@@ -13,7 +13,6 @@ const Header = styled.header`
   justify-content: space-between;
   padding: 0px 16px;
 `
-
 const CardsProducts = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -22,7 +21,6 @@ const CardsProducts = styled.div`
 `
 
 class Products extends React.Component {
-
   state = {
     sort: "CRESCENTE"
   }

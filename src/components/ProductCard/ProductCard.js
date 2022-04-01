@@ -14,8 +14,8 @@ const ProductsFooter = styled.div`
 const ProductPhoto = styled.img`
     width: 100%;
     height: 60%;
-}
-`;
+
+`
 const ProductButton = styled.button`
     align-self: center;
     margin-top: 4px;
@@ -24,11 +24,18 @@ const ProductButton = styled.button`
 class ProductCard extends React.Component {
 
     state = {
-        cart: false 
+        cart: false,
+        qnt: 0,
+        produto: ""
     }
 
-    onClickAddCart = () => {
-        this.setState({cart: !this.state.cart});
+    onClickAddCart = (product) => {
+        console.log(this.props.products)
+        this.setState({
+            qnt: this.state.qnt + 1,
+            cart: !this.state.cart,
+            produto: this.props.products
+        });
     };
 
     render() {
@@ -40,7 +47,7 @@ class ProductCard extends React.Component {
                 <ProductsFooter>
                     <p>{product.name}</p>
                     <p>R${product.price}</p>
-                    <ProductButton onClick={this.onClickAddCart}>Adicionar ao carrinho</ProductButton>
+                    <ProductButton onClick={() => this.props.onAddProductCart(product.id)}>Adicionar ao carrinho</ProductButton>
                 </ProductsFooter>
             </ContainerProdutos>
         )
