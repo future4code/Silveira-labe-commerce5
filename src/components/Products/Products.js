@@ -51,7 +51,10 @@ class Products extends React.Component {
             </Header>
             <CardsProducts>
               {filteredList.map((obj) => {
-                return <ProductCard key={obj.id} products={obj}/>
+                return <ProductCard 
+                          products={obj}
+                          onAddProductCart={this.props.onAddProductCart}
+                          />
               })}
             </CardsProducts>
       </ProductCardDiv>

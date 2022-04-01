@@ -29,15 +29,15 @@ class ProductCard extends React.Component {
         produto: ""
     }
 
-    onClickAddCart = (product) => {
-        console.log(this.props.products)
-        this.setState({
-            qnt: this.state.qnt + 1,
-            cart: !this.state.cart,
-            produto: this.props.products
-        });
-    };
-
+    // onClickAddCart = (product) => {
+    //     console.log(this.props.products)
+    //     this.setState({
+    //         qnt: this.state.qnt + 1,
+    //         cart: !this.state.cart,
+    //         produto: this.props.products
+    //     });
+    // };
+ 
     render() {
         const product = this.props.products;
 

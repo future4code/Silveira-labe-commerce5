@@ -1,9 +1,9 @@
 import React from 'react';
 import productsList from './data/products.json'
 import Filter from './components/Filter/Filter.js';
-import products from './components/Products/Products.js';
+import Products from './components/Products/Products.js';
 import styled from 'styled-components';
-import * as PropTypes from "prop-types";
+// import * as PropTypes from "prop-types";
 import Cart from './components/Cart/Cart.js' ;
 
 let productsObj = {
@@ -16,10 +16,10 @@ const ContainerMain = styled.div`
   padding: 16px;
   gap: 8px;
 `
-
-Products.propTypes = {
-    products: PropTypes.func, nameValue: PropTypes.string, minValue: PropTypes.string, maxValue: PropTypes.string
-};
+/*Não está sendo utilizada:*/
+// Products.PropTypes = {
+//     products: PropTypes.func, nameValue: PropTypes.string, minValue: PropTypes.string, maxValue: PropTypes.string
+// };
 
 class App extends React.Component {
 
@@ -28,21 +28,6 @@ class App extends React.Component {
         maxValue: "",
         nameValue: "",
         productsInCart: [
-            {
-                "id": 1,
-                "name": "Explorer 1",
-                "price": 100.00,
-                "photo": "https://img.ibxk.com.br/2020/10/09/09001326865481.jpg?ims=704x",
-                quantity: 1
-            },
-            {
-                "id": 2,
-                "name": "Sputnik",
-                "price": 125.00,
-                "photo": "https://img.ibxk.com.br/2020/10/09/09001157614480.jpg?ims=704x",
-                quantity:2
-            }
-
         ]
 
     }
@@ -55,28 +40,23 @@ class App extends React.Component {
         const productInCart = this.state.productsInCart.find(product => productId === product.id)
 
         if (productInCart) {
-            const newProductInCart = this.state.productInCart.map(product =>{
+            const newProductInCart = this.state.productsInCart.map(product =>{
                 if(productId === product.id) {
                     return {
                         ...product,
                         quantity: product.quantity + 1
                     }
                 }
-
                 return product
-            })
-            this.setState({productInCart: newProductInCart})
+            });
+            this.setState({productsInCart: newProductInCart});
         }else{
-            const productToAdd = products.find(product => productId === product.id)
+            const productToAdd = productsObj.products.find(product => productId === product.id)
 
-            const newProductsInCart = [...this.state.productInCart, {...productToAdd, quantity : 1}]
+            const newProductsInCart = [...this.state.productsInCart, {...productToAdd, quantity : 1}]
 
             this.setState({productsInCart : newProductsInCart})
-
-
         }
-
-
     }
 
     onRemoveProductsFromCart = (productId) => {
