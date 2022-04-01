@@ -1,13 +1,10 @@
-
-
 import React from 'react';
 import productsList from './data/products.json'
 import Filter from './components/Filter/Filter.js';
-import Products from './components/Products/Products.js';
+import products from './components/Products/Products.js';
 import styled from 'styled-components';
 import * as PropTypes from "prop-types";
 import Cart from './components/Cart/Cart.js' ;
-import products from "./components/Products/Products.js";
 
 let productsObj = {
     products: productsList
@@ -19,11 +16,6 @@ const ContainerMain = styled.div`
   padding: 16px;
   gap: 8px;
 `
-
-// const Cart = styled.div`
-//   border: 1px solid black;
-//   padding: 8px;
-// `
 
 Products.propTypes = {
     products: PropTypes.func, nameValue: PropTypes.string, minValue: PropTypes.string, maxValue: PropTypes.string
@@ -104,7 +96,6 @@ class App extends React.Component {
     render() {
         return (
             <ContainerMain>
-
                 <Filter
                     minValue={this.state.minValue}
                     maxValue={this.state.maxValue}
@@ -112,7 +103,6 @@ class App extends React.Component {
                     onChangeMinValue={this.onChangeMinValue}
                     onChangeMaxValue={this.onChangeMaxValue}
                     onChangeNameValue={this.onChangeNameValue}
-
                 />
 
                 <Products
@@ -121,14 +111,12 @@ class App extends React.Component {
                     maxValue={this.state.maxValue}
                     nameValue={this.state.nameValue}
                     onAddProductCart= {this.onAddProductCart}
-
                 />
 
                 <Cart
                     product = {productsObj.products}
                     productsInCart = {this.state.productsInCart}
                     onRemoveProductsFromCart={this.onRemoveProductsFromCart}
-
                 />
 
             </ContainerMain>
