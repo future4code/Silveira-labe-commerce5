@@ -76,6 +76,7 @@ class App extends React.Component {
     render() {
         return (
             <ContainerMain>
+                
                 <Filter
                     minValue={this.state.minValue}
                     maxValue={this.state.maxValue}
