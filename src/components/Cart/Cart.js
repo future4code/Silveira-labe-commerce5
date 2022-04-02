@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ProductCard from "../ProductCard/ProductCard";
+// import ProductCard from "../ProductCard/ProductCard";
 import ShoppingCartItem from'../Cart/ShoppingCartItem';
 
 const MainContainer = styled.div`
@@ -14,9 +14,9 @@ const NomeProduto = styled.div`
   
 `
 
-const RemoverButton = styled.button`
+// const RemoverButton = styled.button`
 
-`
+// `
 
 
 class Cart extends React.Component{
