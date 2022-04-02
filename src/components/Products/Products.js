@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const ProductCardDiv = styled.div`
   display: flex;
-  flex-direction: row;
   flex-direction: column;
 `
 const Header = styled.header`
@@ -38,7 +37,7 @@ class Products extends React.Component {
   render(){
     const filteredList = this.getFilteredList();
     return(
-      <ProductCardDiv>
+      <ProductCardDiv id="products_section">
           <Header>
             <p>Quantidade de produtos: {filteredList.length}</p>
             <label>
