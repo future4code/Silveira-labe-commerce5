@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Explorer 1",
+        "price": 100.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09001326865481.jpg?ims=704x" 
+    },
+    {
+        "id": 2,
+        "name": "Sputnik",
+        "price": 125.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09001157614480.jpg?ims=704x"
+    },
+    {
+        "id": 3,
+        "name": "Vostok 1",
+        "price": 150.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002021259484.jpg?ims=704x"
+    },
+    {
+        "id": 4,
+        "name": "Luna 10",
+        "price": 400.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002211130485.jpg?ims=704x"
+    },
+    {
+        "id": 5,
+        "name": "Mariner 9",
+        "price": 950.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002324987486.jpg?ims=704x"
+    },
+    {
+        "id": 6,
+        "name": "Galileo",
+        "price": 1100.00,
+        "photo": "https://img.ibxk.com.br/2020/10/09/09002954891489.jpg?ims=704x"
+    }
+]
